@@ -69,7 +69,10 @@ loadMoreButton.addEventListener('click', function () {
       const galleryItems = document.querySelectorAll('.gallery__item');
       const cardHeight = galleryItems[0].getBoundingClientRect().height;
       window.scrollBy(0, cardHeight * 2);
-
+      window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth',
+      });
       
       if (response.totalHits > page * 15) {
         loadMoreButton.classList.remove('is-hidden');
